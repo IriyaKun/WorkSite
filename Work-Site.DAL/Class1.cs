@@ -8,5 +8,9 @@ namespace Work_Site.DAL
 {
     public class Class1
     {
+        public void Start()
+        {
+
+        }
     }
 }
