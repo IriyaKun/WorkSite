@@ -2,9 +2,19 @@
 
 namespace Work_Site.DAL
 {
-    public class WorkSiteUOF : IDisposable
+    public class WorkSiteUof : IDisposable
     {
-        private WorkSiteDbContext _db = new WorkSiteDbContext();
+        private readonly WorkSiteDbContext _db;
+
+        public WorkSiteUof()
+        {
+            _db = new WorkSiteDbContext();
+        }
+
+        public WorkSiteUof(WorkSiteDbContext context)
+        {
+            _db = context;
+        }
 
         private UsersRepository _usersRepository;
         private VacationsRepository _vacationsRepository;
@@ -14,7 +24,7 @@ namespace Work_Site.DAL
         {
             get
             {
-                if(_usersRepository==null)
+                if (_usersRepository == null)
                     _usersRepository = new UsersRepository(_db);
                 return _usersRepository;
             }
@@ -34,7 +44,7 @@ namespace Work_Site.DAL
         {
             get
             {
-                if(_resumeRepository == null)
+                if (_resumeRepository == null)
                     _resumeRepository = new ResumeRepository(_db);
                 return _resumeRepository;
             }
@@ -49,7 +59,7 @@ namespace Work_Site.DAL
 
         public virtual void Dispose(bool disposing)
         {
-            if(!this._disposed)
+            if (!this._disposed)
             {
                 if (disposing)
                 {

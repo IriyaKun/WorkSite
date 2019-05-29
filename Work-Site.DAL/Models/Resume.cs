@@ -15,13 +15,13 @@ namespace Work_Site.DAL.Models
         public string UserId { get; set; }
 
         [Required]
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
         [ForeignKey("Vacation")]
         public string VacationId { get; set; }
 
         [Required]
-        public Vacation Vacation { get; set; }
+        public virtual Vacation Vacation { get; set; }
 
         [Required]
         public string YearsOfExperience { get; set; }
