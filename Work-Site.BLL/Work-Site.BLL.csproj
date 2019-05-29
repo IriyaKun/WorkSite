@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.1.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,8 +44,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Helpers\OperationResult.cs" />
+    <Compile Include="Interfaces\IModel.cs" />
+    <Compile Include="Models\UserDetails.cs" />
+    <Compile Include="Models\VacationDetails.cs" />
+    <Compile Include="VacationsOperations.cs" />
+    <Compile Include="Exceptions\InvalidResumeException.cs" />
+    <Compile Include="Exceptions\InvalidUserException.cs" />
+    <Compile Include="Exceptions\InvalidVacationException.cs" />
+    <Compile Include="Helpers\UserMapperConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Work-Site.DAL\Work-Site.DAL.csproj">
+      <Project>{388880dc-4c23-4e38-81e1-ee198c77aa3f}</Project>
+      <Name>Work-Site.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

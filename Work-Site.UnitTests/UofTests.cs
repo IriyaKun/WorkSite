@@ -59,7 +59,7 @@ namespace Work_Site.UnitTests
             var mockContext = new Mock<WorkSiteDbContext>();
             mockContext.Setup(c => c.Set<User>()).Returns(mockSet.Object);
 
-            using (var uow = new WorkSiteUof(mockContext.Object))
+            using (var uow = new WorkSiteUow(mockContext.Object))
             {
                 uow.Users.Create(user);
                 uow.Save();
@@ -86,7 +86,7 @@ namespace Work_Site.UnitTests
             var mockContext = new Mock<WorkSiteDbContext>();
             mockContext.Setup(c => c.Set<User>()).Returns(mockSet.Object);
 
-            using (var uow = new WorkSiteUof(mockContext.Object))
+            using (var uow = new WorkSiteUow(mockContext.Object))
             {
                 uow.Users.Create(user);
                 uow.Save();

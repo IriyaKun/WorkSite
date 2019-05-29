@@ -19,7 +19,7 @@ namespace Work_Site.DAL.Models
 
         public string Keywords { get; set; }
 
-        public virtual List<Resume> Resumes { get; set; }
+        public virtual  ICollection<User> Users { get; set; }
 
         [Required]
         [Column(TypeName = "datetime2")]

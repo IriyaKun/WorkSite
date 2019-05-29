@@ -11,19 +11,10 @@ namespace Work_Site.DAL.Models
         [Key]
         public string Guid { get; set; }
 
-        [ForeignKey("User")]
-        public string UserId { get; set; }
-
         [Required]
-        public virtual User User { get; set; }
+        [ForeignKey("Guid")]
+        public User User { get; set; }
 
-        [ForeignKey("Vacation")]
-        public string VacationId { get; set; }
-
-        [Required]
-        public virtual Vacation Vacation { get; set; }
-
-        [Required]
         public string YearsOfExperience { get; set; }
 
         public string SpecialMessage { get; set; }
