@@ -8,7 +8,7 @@ namespace Work_Site.DAL.Models
     public class Resume: IModel
     {
         [Required]
-        public Guid Guid { get; set; }
+        public string Guid { get; set; }
 
         [ForeignKey("User")]
         public Guid UserId { get; set; }
