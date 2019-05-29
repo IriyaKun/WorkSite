@@ -7,6 +7,7 @@ namespace Work_Site.DAL.Models
     public class User : IModel
     {
         [Required]
+        [Key]
         public string Guid { get; set; }
 
         [Required]

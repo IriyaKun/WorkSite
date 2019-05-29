@@ -9,6 +9,7 @@ namespace Work_Site.DAL.Models
     public class Vacation : IModel
     {
         [Required]
+        [Key]
         public string Guid { get; set; }
 
         [Required]
