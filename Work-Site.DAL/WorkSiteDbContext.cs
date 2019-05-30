@@ -13,5 +13,12 @@ namespace Work_Site.DAL
         public DbSet<User> Users { get; set; }
         public DbSet<Resume> Resumes { get; set; }
         public DbSet<Vacation> Vacations { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Vacation>()
+                .HasMany(vacation => vacation.Users)
+                .WithMany(user => user.Vacations);
+        }
     }
 }

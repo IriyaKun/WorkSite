@@ -2,16 +2,16 @@
 
 namespace Work_Site.DAL
 {
-    public class WorkSiteUof : IDisposable
+    public class WorkSiteUow : IDisposable
     {
         private readonly WorkSiteDbContext _db;
 
-        public WorkSiteUof()
+        public WorkSiteUow()
         {
             _db = new WorkSiteDbContext();
         }
 
-        public WorkSiteUof(WorkSiteDbContext context)
+        public WorkSiteUow(WorkSiteDbContext context)
         {
             _db = context;
         }

@@ -59,7 +59,7 @@
     <Compile Include="UsersRepository.cs" />
     <Compile Include="VacationsRepository.cs" />
     <Compile Include="WorkSiteDbContext.cs" />
-    <Compile Include="WorkSiteUOF.cs" />
+    <Compile Include="WorkSiteUow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

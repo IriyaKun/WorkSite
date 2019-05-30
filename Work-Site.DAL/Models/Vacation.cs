@@ -17,9 +17,10 @@ namespace Work_Site.DAL.Models
 
         public string Description { get; set; }
 
+        //actually a string array representing filters
         public string Keywords { get; set; }
 
-        public virtual List<Resume> Resumes { get; set; }
+        public virtual  ICollection<User> Users { get; set; }
 
         [Required]
         [Column(TypeName = "datetime2")]
