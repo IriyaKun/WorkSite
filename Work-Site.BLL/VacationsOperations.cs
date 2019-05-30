@@ -22,13 +22,13 @@ namespace Work_Site.BLL
         private readonly MapperConfiguration _businessDbVacationConfig;
         private readonly MapperConfiguration _dbBusinessVacationConfig;
         private readonly MapperConfiguration _dbBusinessResumeConfig;
-        private IMapper _mapper;
+
+        //Ninject kernel
         private readonly IKernel _kernel;
 
 
-        public VacationsOperations(IMapper mapper)
+        public VacationsOperations()
         {
-            _mapper = mapper;
             _uow = new WorkSiteUow();
             _businessDbVacationConfig = new MapperConfiguration(cfg =>
             {

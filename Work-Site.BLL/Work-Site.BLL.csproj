@@ -34,6 +34,9 @@
     <Reference Include="AutoMapper, Version=8.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.8.1.0\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
     </Reference>
@@ -47,12 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\InvalidApiKeyException.cs" />
     <Compile Include="Helpers\NinjectRegistrations.cs" />
     <Compile Include="Helpers\OperationResult.cs" />
+    <Compile Include="Helpers\SecurePasswordHasher.cs" />
     <Compile Include="Interfaces\IModel.cs" />
     <Compile Include="Models\ResumeDto.cs" />
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Models\VacationDto.cs" />
+    <Compile Include="UsersOperations.cs" />
     <Compile Include="VacationsOperations.cs" />
     <Compile Include="Exceptions\InvalidResumeException.cs" />
     <Compile Include="Exceptions\InvalidUserException.cs" />
@@ -61,6 +67,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Helpers\apiKeys.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
