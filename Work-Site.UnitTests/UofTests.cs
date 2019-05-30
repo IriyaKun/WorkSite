@@ -38,6 +38,11 @@ namespace Work_Site.UnitTests
 
                     return entity;
                 });
+
+                this.Setup(e => e.Find(It.IsAny<TEntity>())).Returns((TEntity n) => 
+                {
+                        return this.BackingStore.First(entity => entity.Equals(n));
+                });
             }
         }
 
@@ -63,9 +68,10 @@ namespace Work_Site.UnitTests
             {
                 uow.Users.Create(user);
                 uow.Save();
+                mockSet.Verify(u => u.Add(It.IsAny<User>()), Times.Once);
             }
 
-            mockSet.Verify(u => u.Add(It.IsAny<User>()), Times.Once);
+            
         }
 
         [Fact]
@@ -95,6 +101,35 @@ namespace Work_Site.UnitTests
             }
 
             mockSet.Verify(u => u.Remove(It.IsNotIn(user)), Times.Never);
+        }
+
+        [Fact]
+        public void ShouldFindUser()
+        {
+            var user = new User()
+            {
+                Email = "email@email.com",
+                Guid = System.Guid.NewGuid().ToString(),
+                HashedPassword = "hash",
+                Name = "name",
+                Role = "admin",
+                Surname = "dksk"
+            };
+
+            var mockSet = new MockDbSet<User>();
+
+            var mockContext = new Mock<WorkSiteDbContext>();
+            mockContext.Setup(c => c.Set<User>()).Returns(mockSet.Object);
+
+            User res;
+
+            using (var uow = new WorkSiteUow(mockContext.Object))
+            {
+                uow.Users.Create(user);
+                uow.Save();
+                res = uow.Users.Read(user.Guid);
+            }
+            Assert.Null(res);
         }
 
 

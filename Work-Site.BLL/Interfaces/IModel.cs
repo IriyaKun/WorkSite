@@ -1,6 +1,6 @@
 ﻿namespace Work_Site.BLL.Interfaces
 {
-    public interface IDetailsModel
+    public interface IDtoModel
     {
         string Guid { get; set; }
     }

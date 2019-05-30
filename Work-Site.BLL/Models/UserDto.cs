@@ -2,7 +2,7 @@
 
 namespace Work_Site.BLL.Models
 {
-    public class UserDetails : IDetailsModel
+    public class UserDto : IDtoModel
     {
         public string Guid { get; set; }
 
